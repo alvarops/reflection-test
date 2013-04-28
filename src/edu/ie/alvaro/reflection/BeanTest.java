@@ -16,13 +16,18 @@ public class BeanTest {
 	}
 
 	@After
-	public void tearDown() throws Exception {}
+	public void tearDown() throws Exception {
+		mBean = null;
+	}
 
 	@Test
 	public void test() {
+		String strBean;
 		assertNotNull(mBean);
-		System.out.println(mBean.toString());
-		assertFalse(mBean.toString().isEmpty());
+		strBean = mBean.toString();
+		System.out.println(strBean);
+		assertFalse(strBean.isEmpty());
+		assertFalse(strBean.indexOf("field1") == -1);
 	}
 
 }
